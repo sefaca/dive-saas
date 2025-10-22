@@ -63,30 +63,35 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				'admin-class': {
-					DEFAULT: 'hsl(var(--admin-class))',
-					foreground: 'hsl(var(--admin-class-foreground))',
-					border: 'hsl(var(--admin-class-border))'
+				'dive-session': {
+					DEFAULT: 'hsl(var(--dive-session))',
+					foreground: 'hsl(var(--dive-session-foreground))',
+					border: 'hsl(var(--dive-session-border))'
 				},
-				// Colores específicos de Playtomic
-				playtomic: {
-					orange: '#FF6B35', // Naranja principal de Playtomic
-					'orange-light': '#FF8A65',
-					'orange-dark': '#E55722',
-					green: '#4CAF50', // Verde secundario
-					'green-light': '#81C784',
-					'green-dark': '#388E3C',
-					gray: {
-						50: '#FAFAFA',
-						100: '#F5F5F5',
-						200: '#EEEEEE',
-						300: '#E0E0E0',
-						400: '#BDBDBD',
-						500: '#9E9E9E',
-						600: '#757575',
-						700: '#616161',
-						800: '#424242',
-						900: '#212121'
+				// Dive SaaS - Marine & Ocean theme
+				ocean: {
+					deep: '#0E7490', // Deep Ocean Blue (primary)
+					tropical: '#06B6D4', // Tropical Water (secondary)
+					'deep-dark': '#0C4A6E', // Deep Sea Blue (sidebar)
+					'tropical-light': '#22D3EE',
+					'tropical-lighter': '#67E8F9',
+					coral: '#F97316', // Coral Orange (accent)
+					'coral-light': '#FB923C',
+					'coral-dark': '#EA580C',
+					marine: '#10B981', // Marine Green
+					'marine-light': '#34D399',
+					'marine-dark': '#059669',
+					sand: {
+						50: '#FEFCE8',
+						100: '#FEF9C3',
+						200: '#FEF08A',
+						300: '#FDE047',
+						400: '#FACC15',
+						500: '#EAB308',
+						600: '#CA8A04',
+						700: '#A16207',
+						800: '#854D0E',
+						900: '#713F12'
 					}
 				}
 			},

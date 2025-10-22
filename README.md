@@ -1,73 +1,121 @@
-# Welcome to your Lovable project
+# Dive SaaS - Professional Dive Center Management System
 
-## Project info
+A comprehensive SaaS platform for managing scuba diving operations, designed specifically for dive centers in the Cayman Islands and Caribbean region.
 
-**URL**: https://lovable.dev/projects/3b5a6082-6ca3-4d3f-a686-198ed3b67b21
+## Features
 
-## How can I edit this code?
+- **Dive Session Management**: Schedule and manage diving sessions, courses, and certifications
+- **Student/Diver Management**: Track student progress, certifications, and dive logs
+- **Instructor Management**: Manage dive instructors, their schedules and assignments
+- **Equipment Tracking**: Monitor dive equipment inventory and maintenance
+- **Booking System**: Online booking for dive trips and courses
+- **Payment Integration**: Handle payments and subscriptions via Stripe
+- **Multi-language Support**: English and Spanish interfaces
+- **Mobile-First Design**: Responsive design optimized for mobile and desktop
+- **Real-time Updates**: Live notifications and booking updates
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Frontend**: React 18 + TypeScript + Vite
+- **UI Components**: shadcn/ui + Tailwind CSS
+- **Backend**: Supabase (PostgreSQL + Edge Functions)
+- **Authentication**: Supabase Auth with social providers
+- **Payments**: Stripe Connect
+- **State Management**: TanStack Query (React Query)
+- **Routing**: React Router v6
+- **Forms**: React Hook Form + Zod validation
+- **Charts**: Recharts
+- **i18n**: i18next
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/3b5a6082-6ca3-4d3f-a686-198ed3b67b21) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18+ and npm
+- Supabase account
+- Stripe account (for payments)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. Clone the repository:
+```bash
+git clone https://github.com/sefaca/dive-saas.git
+cd dive-saas
+```
 
-Follow these steps:
+2. Install dependencies:
+```bash
+npm install
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. Set up environment variables:
+```bash
+cp .env.example .env
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Edit `.env` and add your Supabase credentials:
+```env
+VITE_SUPABASE_PROJECT_ID="your-project-id"
+VITE_SUPABASE_PUBLISHABLE_KEY="your-publishable-key"
+VITE_SUPABASE_URL="https://your-project.supabase.co"
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+4. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+5. Open [http://localhost:5173](http://localhost:5173) in your browser
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project Structure
 
-**Use GitHub Codespaces**
+```
+dive-saas/
+├── src/
+│   ├── components/        # React components
+│   │   ├── ui/           # shadcn/ui components
+│   │   ├── auth/         # Authentication components
+│   │   └── ...           # Feature components
+│   ├── pages/            # Page components
+│   ├── hooks/            # Custom React hooks
+│   ├── contexts/         # React contexts
+│   ├── integrations/     # External integrations (Supabase)
+│   ├── types/            # TypeScript types
+│   ├── utils/            # Utility functions
+│   └── i18n/             # Internationalization
+├── supabase/
+│   ├── functions/        # Edge Functions
+│   └── migrations/       # Database migrations
+└── public/               # Static assets
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Available Scripts
 
-## What technologies are used for this project?
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run screenshots:desktop` - Capture desktop screenshots
+- `npm run screenshots:mobile` - Capture mobile screenshots
 
-This project is built with:
+## Color Palette
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Our ocean-inspired color scheme:
 
-## How can I deploy this project?
+- **Deep Ocean Blue** (#0E7490) - Primary color
+- **Tropical Water** (#06B6D4) - Secondary color
+- **Coral Orange** (#F97316) - Accent color
+- **Marine Green** (#10B981) - Success/Active states
+- **Deep Sea Blue** (#0C4A6E) - Sidebar/Navigation
 
-Simply open [Lovable](https://lovable.dev/projects/3b5a6082-6ca3-4d3f-a686-198ed3b67b21) and click on Share -> Publish.
+## License
 
-## Can I connect a custom domain to my Lovable project?
+Private - All Rights Reserved
 
-Yes, you can!
+## Support
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+For support, email support@divesaas.com or contact us through the platform.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+---
+
+Made with ❤️ for dive centers worldwide

@@ -16,7 +16,8 @@
       "Bash(npx playwright install:*)",
       "Bash(npm run screenshots:desktop:*)",
       "Bash(rm:*)",
-      "Bash(git remote:*)"
+      "Bash(git remote:*)",
+      "Bash(git branch:*)"
     ],
     "deny": [],
     "ask": []

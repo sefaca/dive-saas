@@ -8,91 +8,92 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 210 20% 15%;
+    --foreground: 200 15% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 20% 15%;
+    --card-foreground: 200 15% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 20% 15%;
+    --popover-foreground: 200 15% 20%;
 
-    --primary: 22 100% 55%; /* Naranja Playtomic */
+    --primary: 188 94% 29%; /* Deep Ocean Blue - #0E7490 */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 210 20% 15%;
+    --secondary: 188 95% 43%; /* Tropical Water - #06B6D4 */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 197 37% 96%;
+    --muted-foreground: 197 10% 46%;
 
-    --accent: 22 100% 55%; /* Naranja Playtomic */
+    --accent: 24 95% 53%; /* Coral Orange - #F97316 */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 22 100% 55%; /* Naranja Playtomic */
+    --border: 197 31% 91%;
+    --input: 197 31% 91%;
+    --ring: 188 94% 29%; /* Deep Ocean Blue */
 
     --radius: 0.5rem;
 
-    --sidebar-background: 225 37% 11%; /* #10172a - Dark navy */
+    --sidebar-background: 199 89% 22%; /* Deep Sea Blue - #0C4A6E */
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 22 100% 55%; /* Naranja Playtomic */
+    --sidebar-primary: 188 95% 43%; /* Tropical Water */
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 225 37% 16%;
+    --sidebar-accent: 199 89% 28%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 225 37% 18%;
-    --sidebar-ring: 22 100% 55%; /* Naranja Playtomic */
+    --sidebar-border: 199 89% 32%;
+    --sidebar-ring: 188 95% 43%; /* Tropical Water */
 
-    /* Admin class colors */
-    --admin-class: 35 100% 85%; /* Golden color for admin classes */
-    --admin-class-foreground: 35 100% 25%;
-    --admin-class-border: 35 100% 75%;
+    /* Dive session colors */
+    --dive-session: 160 84% 39%; /* Marine Green - #10B981 */
+    --dive-session-foreground: 0 0% 100%;
+    --dive-session-border: 160 84% 49%;
   }
 
   .dark {
-    --background: 210 20% 8%;
-    --foreground: 210 40% 98%;
+    --background: 200 30% 8%;
+    --foreground: 197 20% 95%;
 
-    --card: 210 20% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 200 30% 10%;
+    --card-foreground: 197 20% 95%;
 
-    --popover: 210 20% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 200 30% 10%;
+    --popover-foreground: 197 20% 95%;
 
-    --primary: 22 100% 55%; /* Naranja Playtomic */
+    --primary: 188 95% 43%; /* Tropical Water */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 188 94% 29%; /* Deep Ocean Blue */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 200 30% 15%;
+    --muted-foreground: 197 20% 65%;
 
-    --accent: 22 100% 55%; /* Naranja Playtomic */
+    --accent: 24 95% 53%; /* Coral Orange */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 197 20% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 22 100% 55%; /* Naranja Playtomic */
-    --sidebar-background: 210 20% 8%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 22 100% 55%; /* Naranja Playtomic */
+    --border: 200 30% 20%;
+    --input: 200 30% 20%;
+    --ring: 188 95% 43%; /* Tropical Water */
+
+    --sidebar-background: 199 89% 15%; /* Darker Deep Sea */
+    --sidebar-foreground: 197 20% 95%;
+    --sidebar-primary: 188 95% 43%; /* Tropical Water */
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 217.2 32.6% 17.5%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217.2 32.6% 17.5%;
-    --sidebar-ring: 22 100% 55%; /* Naranja Playtomic */
+    --sidebar-accent: 200 30% 20%;
+    --sidebar-accent-foreground: 197 20% 95%;
+    --sidebar-border: 200 30% 25%;
+    --sidebar-ring: 188 95% 43%; /* Tropical Water */
 
-    /* Admin class colors */
-    --admin-class: 35 100% 20%; /* Darker golden color for admin classes in dark mode */
-    --admin-class-foreground: 35 100% 85%;
-    --admin-class-border: 35 100% 30%;
+    /* Dive session colors */
+    --dive-session: 160 84% 39%; /* Marine Green */
+    --dive-session-foreground: 0 0% 100%;
+    --dive-session-border: 160 84% 49%;
   }
 }
 

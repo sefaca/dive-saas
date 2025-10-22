@@ -8,9 +8,8 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "@/hooks/use-toast";
-import { UserPlus, LogIn, Mail, Lock, User, Target, CheckCircle2, Eye, EyeOff, Users } from "lucide-react";
+import { UserPlus, LogIn, Mail, Lock, User, Waves, CheckCircle2, Eye, EyeOff, Users } from "lucide-react";
 import ClubSelector from "@/components/ClubSelector";
-import padelockLogo from "@/assets/PadeLock_D5Red.png";
 import { supabase } from "@/integrations/supabase/client";
 
 export const AuthPage = () => {
@@ -349,15 +348,15 @@ export const AuthPage = () => {
     const testDelay = urlParams.get('testDelay');
 
     return (
-      <div className="min-h-screen w-full bg-gradient-to-br from-slate-900 via-playtomic-dark to-slate-900 flex items-center justify-center p-4">
+      <div className="min-h-screen w-full bg-gradient-to-br from-ocean-deep-dark via-sky-900 to-ocean-deep flex items-center justify-center p-4">
         <div className="text-center space-y-6">
           <div className="relative">
-            <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-playtomic-orange mx-auto"></div>
-            <div className="absolute inset-0 rounded-full h-16 w-16 border-4 border-playtomic-orange/20 mx-auto"></div>
+            <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-ocean-tropical mx-auto"></div>
+            <div className="absolute inset-0 rounded-full h-16 w-16 border-4 border-ocean-tropical/20 mx-auto"></div>
           </div>
           <div className="space-y-2">
-            <h2 className="text-2xl font-bold text-white">Verificando tu cuenta...</h2>
-            <p className="text-slate-300 text-sm">Esto solo tomará unos segundos</p>
+            <h2 className="text-2xl font-bold text-white">Verifying your account...</h2>
+            <p className="text-slate-300 text-sm">This will only take a few seconds</p>
 
             {/* 🧪 Indicador de modo de prueba */}
             {testMode && (
@@ -378,50 +377,54 @@ export const AuthPage = () => {
   }
 
   return (
-    <div className="min-h-screen lg:h-screen w-full bg-gradient-to-br from-slate-900 via-playtomic-dark to-slate-900 flex items-center justify-center p-4 py-6 relative overflow-x-hidden">
-      {/* Elementos decorativos de fondo */}
+    <div className="min-h-screen lg:h-screen w-full bg-gradient-to-br from-ocean-deep-dark via-sky-900 to-ocean-deep flex items-center justify-center p-4 py-6 relative overflow-x-hidden">
+      {/* Elementos decorativos de fondo - Burbujas oceánicas */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-playtomic-orange/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-playtomic-orange/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-playtomic-orange/5 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-ocean-tropical/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-ocean-marine/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-ocean-tropical/5 to-transparent rounded-full blur-3xl"></div>
       </div>
 
       <div className="w-full lg:h-full max-w-7xl flex flex-col lg:flex-row items-stretch gap-8 relative z-10 py-8 lg:py-0">
         {/* Panel izquierdo - Branding */}
         <div className="flex-1 flex flex-col justify-center text-center lg:text-left space-y-6 lg:space-y-8">
-          {/* Logo */}
+          {/* Logo / Brand */}
           <div className="flex justify-center lg:justify-start">
-            <img
-              src={padelockLogo}
-              alt="PadeLock Logo"
-              className="h-24 lg:h-32 xl:h-40 w-auto drop-shadow-2xl"
-            />
+            <div className="flex items-center gap-4">
+              <Waves className="h-16 lg:h-20 xl:h-24 w-16 lg:w-20 xl:w-24 text-ocean-tropical drop-shadow-2xl" />
+              <div>
+                <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white">
+                  Dive<span className="text-ocean-tropical">SaaS</span>
+                </h2>
+                <p className="text-ocean-tropical-light text-sm lg:text-base">Professional Dive Center Management</p>
+              </div>
+            </div>
           </div>
 
           {/* Hero text */}
           <div className="space-y-3 lg:space-y-4">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
-              Gestiona tu academia
-              <span className="block bg-gradient-to-r from-playtomic-orange to-orange-400 bg-clip-text text-transparent">
-                con éxito
+              Manage your dive center
+              <span className="block bg-gradient-to-r from-ocean-tropical to-ocean-tropical-light bg-clip-text text-transparent">
+                professionally
               </span>
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-lg mx-auto lg:mx-0">
-              La plataforma completa para administrar tu academia, profesores y alumnos de manera profesional.
+              The complete platform to manage dive trips, staff, customers, and courses efficiently.
             </p>
           </div>
 
           {/* Features - Hidden on mobile to save space */}
           <div className="hidden lg:flex lg:flex-col space-y-4 max-w-lg">
             {[
-              "Gestión completa de alumnos y matrículas",
-              "Programación inteligente de clases",
-              "Sistema de pagos integrado con Stripe",
-              "Reportes y estadísticas en tiempo real"
+              "Complete dive trip scheduling and management",
+              "Customer CRM with certification tracking",
+              "Staff management and dive assignments",
+              "Real-time statistics and booking reports"
             ].map((feature, index) => (
               <div key={index} className="flex items-start gap-3 text-slate-200">
                 <div className="mt-1 flex-shrink-0">
-                  <CheckCircle2 className="h-5 w-5 text-playtomic-orange" />
+                  <CheckCircle2 className="h-5 w-5 text-ocean-tropical" />
                 </div>
                 <span className="text-base">{feature}</span>
               </div>
@@ -433,11 +436,11 @@ export const AuthPage = () => {
 <div className="flex-1 w-full max-w-md mx-auto lg:mx-0 flex flex-col justify-center">
   <Card className="border-0 shadow-2xl bg-white/95 backdrop-blur-xl rounded-2xl overflow-y-auto border border-white/20 max-h-[90vh] lg:max-h-[85vh]">
     <CardHeader className="text-center space-y-3 pb-8 pt-12 px-8">
-      <CardTitle className="text-3xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
-        Acceso al Sistema
+      <CardTitle className="text-3xl font-bold bg-gradient-to-r from-ocean-deep to-ocean-tropical bg-clip-text text-transparent">
+        Access the System
       </CardTitle>
       <CardDescription className="text-base text-slate-600">
-        Gestiona tu club de pádel de forma profesional
+        Manage your dive center professionally
       </CardDescription>
     </CardHeader>
     
@@ -446,17 +449,17 @@ export const AuthPage = () => {
         <TabsList className="grid w-full grid-cols-2 mb-8 h-12 bg-slate-100/80 p-1 rounded-xl">
           <TabsTrigger
             value="signin"
-            className="flex items-center gap-2 data-[state=active]:bg-white data-[state=active]:shadow-md data-[state=active]:text-playtomic-orange rounded-lg transition-all duration-200 font-semibold"
+            className="flex items-center gap-2 data-[state=active]:bg-white data-[state=active]:shadow-md data-[state=active]:text-ocean-deep rounded-lg transition-all duration-200 font-semibold"
           >
             <LogIn className="h-4 w-4" />
-            <span>Iniciar Sesión</span>
+            <span>Sign In</span>
           </TabsTrigger>
           <TabsTrigger
             value="signup"
-            className="flex items-center gap-2 data-[state=active]:bg-white data-[state=active]:shadow-md data-[state=active]:text-playtomic-orange rounded-lg transition-all duration-200 font-semibold"
+            className="flex items-center gap-2 data-[state=active]:bg-white data-[state=active]:shadow-md data-[state=active]:text-ocean-deep rounded-lg transition-all duration-200 font-semibold"
           >
             <UserPlus className="h-4 w-4" />
-            <span>Registrarse</span>
+            <span>Sign Up</span>
           </TabsTrigger>
         </TabsList>
 
@@ -474,8 +477,8 @@ export const AuthPage = () => {
                   type="email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  placeholder="tu@email.com"
-                  className="h-12 text-base border-slate-200 bg-white focus:border-playtomic-orange focus:ring-2 focus:ring-playtomic-orange/20 rounded-lg transition-all"
+                  placeholder="your@email.com"
+                  className="h-12 text-base border-slate-200 bg-white focus:border-ocean-tropical focus:ring-2 focus:ring-ocean-tropical/20 rounded-lg transition-all"
                   required
                 />
               </div>
@@ -491,8 +494,8 @@ export const AuthPage = () => {
                     type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={e => setPassword(e.target.value)}
-                    placeholder="Tu contraseña"
-                    className="h-12 text-base border-slate-200 bg-white focus:border-playtomic-orange focus:ring-2 focus:ring-playtomic-orange/20 rounded-lg transition-all pr-10"
+                    placeholder="Your password"
+                    className="h-12 text-base border-slate-200 bg-white focus:border-ocean-tropical focus:ring-2 focus:ring-ocean-tropical/20 rounded-lg transition-all pr-10"
                     required
                   />
                   <button
@@ -509,18 +512,18 @@ export const AuthPage = () => {
 
             <Button
               type="submit"
-              className="w-full h-12 bg-gradient-to-r from-playtomic-orange to-orange-600 hover:from-playtomic-orange/90 hover:to-orange-700 text-white font-semibold text-base shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200 rounded-lg"
+              className="w-full h-12 bg-gradient-to-r from-ocean-deep to-ocean-tropical hover:from-ocean-deep/90 hover:to-ocean-tropical/90 text-white font-semibold text-base shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200 rounded-lg"
               disabled={isLoading}
             >
               {isLoading ? (
                 <div className="flex items-center gap-2">
                   <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                  Iniciando Sesión...
+                  Signing In...
                 </div>
               ) : (
                 <div className="flex items-center gap-2">
                   <LogIn className="h-5 w-5" />
-                  Iniciar Sesión
+                  Sign In
                 </div>
               )}
             </Button>
@@ -541,7 +544,7 @@ export const AuthPage = () => {
                 type="button"
                 onClick={handleGoogleSignIn}
                 variant="outline"
-                className="w-full h-12 border-2 border-slate-200 hover:border-playtomic-orange/50 hover:bg-white hover:text-slate-700 text-slate-700 font-medium rounded-lg transition-all duration-200 hover:shadow-md"
+                className="w-full h-12 border-2 border-slate-200 hover:border-ocean-tropical/50 hover:bg-white hover:text-slate-700 text-slate-700 font-medium rounded-lg transition-all duration-200 hover:shadow-md"
               >
                 <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -549,10 +552,10 @@ export const AuthPage = () => {
                   <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                   <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
                 </svg>
-                Continuar con Google
+                Continue with Google
               </Button>
               <p className="text-xs text-center text-slate-500">
-                Inicia sesión o crea una cuenta automáticamente
+                Sign in or create an account automatically
               </p>
             </div>
           </form>
@@ -567,7 +570,7 @@ export const AuthPage = () => {
                 type="button"
                 onClick={handleGoogleSignIn}
                 variant="outline"
-                className="w-full h-12 border-2 border-slate-200 hover:border-playtomic-orange/50 hover:bg-white hover:text-slate-700 text-slate-700 font-medium rounded-lg transition-all duration-200 hover:shadow-md"
+                className="w-full h-12 border-2 border-slate-200 hover:border-ocean-tropical/50 hover:bg-white hover:text-slate-700 text-slate-700 font-medium rounded-lg transition-all duration-200 hover:shadow-md"
               >
                 <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -596,19 +599,19 @@ export const AuthPage = () => {
             <div className="space-y-3">
               <Label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
                 <Users className="h-4 w-4" />
-                ¿Cómo vas a usar PadeLock? *
+                How will you use DiveSaaS? *
               </Label>
               <RadioGroup value={userType} onValueChange={(value) => setUserType(value as 'player' | 'guardian')}>
-                <div className="flex items-center space-x-3 p-3 border-2 border-slate-200 rounded-lg hover:border-playtomic-orange/50 transition-all cursor-pointer">
+                <div className="flex items-center space-x-3 p-3 border-2 border-slate-200 rounded-lg hover:border-ocean-tropical/50 transition-all cursor-pointer">
                   <RadioGroupItem value="player" id="player" />
                   <Label htmlFor="player" className="flex-1 cursor-pointer font-normal">
-                    Soy jugador/a
+                    I'm a diver/customer
                   </Label>
                 </div>
-                <div className="flex items-center space-x-3 p-3 border-2 border-slate-200 rounded-lg hover:border-playtomic-orange/50 transition-all cursor-pointer">
+                <div className="flex items-center space-x-3 p-3 border-2 border-slate-200 rounded-lg hover:border-ocean-tropical/50 transition-all cursor-pointer">
                   <RadioGroupItem value="guardian" id="guardian" />
                   <Label htmlFor="guardian" className="flex-1 cursor-pointer font-normal">
-                    Soy padre/madre (voy a inscribir a mis hijos)
+                    I'm booking for my family
                   </Label>
                 </div>
               </RadioGroup>
@@ -626,7 +629,7 @@ export const AuthPage = () => {
                 value={fullName}
                 onChange={e => setFullName(e.target.value)}
                 placeholder="Juan Pérez García"
-                className="h-12 text-base border-slate-200 bg-white focus:border-playtomic-orange focus:ring-2 focus:ring-playtomic-orange/20 rounded-lg transition-all"
+                className="h-12 text-base border-slate-200 bg-white focus:border-ocean-tropical focus:ring-2 focus:ring-ocean-tropical/20 rounded-lg transition-all"
                 required
               />
             </div>
@@ -644,7 +647,7 @@ export const AuthPage = () => {
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   placeholder="tu@email.com"
-                  className="h-12 text-base border-slate-200 bg-white focus:border-playtomic-orange focus:ring-2 focus:ring-playtomic-orange/20 rounded-lg transition-all"
+                  className="h-12 text-base border-slate-200 bg-white focus:border-ocean-tropical focus:ring-2 focus:ring-ocean-tropical/20 rounded-lg transition-all"
                   required
                 />
               </div>
@@ -698,7 +701,7 @@ export const AuthPage = () => {
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                     placeholder="Mínimo 6 caracteres"
-                    className="h-12 text-base border-slate-200 bg-white focus:border-playtomic-orange focus:ring-2 focus:ring-playtomic-orange/20 rounded-lg transition-all pr-10"
+                    className="h-12 text-base border-slate-200 bg-white focus:border-ocean-tropical focus:ring-2 focus:ring-ocean-tropical/20 rounded-lg transition-all pr-10"
                     required
                   />
                   <button
@@ -773,12 +776,12 @@ export const AuthPage = () => {
               />
             </div>
 
-            {/* Nivel de juego - Solo para players */}
+            {/* Dive certification level - Solo para players */}
             {userType === 'player' && (
               <div className="space-y-3">
                 <Label htmlFor="signup-level" className="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                  <Target className="h-4 w-4" />
-                  Nivel de Juego (Playtomic) *
+                  <Waves className="h-4 w-4" />
+                  Certification Level *
                 </Label>
                 <Input
                   id="signup-level"
@@ -792,12 +795,12 @@ export const AuthPage = () => {
                       setLevel(value);
                     }
                   }}
-                  placeholder="Ej: 3.5"
-                  className="h-12 text-base border-slate-200 bg-white focus:border-playtomic-orange focus:ring-2 focus:ring-playtomic-orange/20 rounded-lg transition-all"
+                  placeholder="e.g: 2.5"
+                  className="h-12 text-base border-slate-200 bg-white focus:border-ocean-tropical focus:ring-2 focus:ring-ocean-tropical/20 rounded-lg transition-all"
                   required
                 />
                 <p className="text-xs text-slate-500">
-                  Introduce tu nivel Playtomic (1.0 - 10.0)
+                  Enter your certification level (1.0 - 10.0)
                 </p>
               </div>
             )}
@@ -809,16 +812,16 @@ export const AuthPage = () => {
                   type="checkbox"
                   id="terms"
                   required
-                  className="mt-1 w-4 h-4 text-playtomic-orange bg-white border-slate-300 rounded focus:ring-playtomic-orange focus:ring-2"
+                  className="mt-1 w-4 h-4 text-ocean-tropical bg-white border-slate-300 rounded focus:ring-ocean-tropical focus:ring-2"
                 />
                 <label htmlFor="terms" className="text-sm text-slate-700 leading-tight">
-                  Acepto los{' '}
-                  <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-playtomic-orange hover:text-orange-600 font-medium underline">
-                    Términos y Condiciones
+                  I accept the{' '}
+                  <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-ocean-deep hover:text-ocean-tropical font-medium underline">
+                    Terms and Conditions
                   </a>{' '}
-                  y la{' '}
-                  <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-playtomic-orange hover:text-orange-600 font-medium underline">
-                    Política de Privacidad
+                  and the{' '}
+                  <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-ocean-deep hover:text-ocean-tropical font-medium underline">
+                    Privacy Policy
                   </a>
                 </label>
               </div>
@@ -826,18 +829,18 @@ export const AuthPage = () => {
 
             <Button
               type="submit"
-              className="w-full h-12 bg-gradient-to-r from-playtomic-orange to-orange-600 hover:from-playtomic-orange/90 hover:to-orange-700 text-white font-semibold text-base shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200 rounded-lg mt-2"
+              className="w-full h-12 bg-gradient-to-r from-ocean-deep to-ocean-tropical hover:from-ocean-deep/90 hover:to-ocean-tropical/90 text-white font-semibold text-base shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200 rounded-lg mt-2"
               disabled={isLoading}
             >
               {isLoading ? (
                 <div className="flex items-center gap-2">
                   <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                  Creando Cuenta...
+                  Creating Account...
                 </div>
               ) : (
                 <div className="flex items-center gap-2">
                   <UserPlus className="h-5 w-5" />
-                  Crear Cuenta
+                  Create Account
                 </div>
               )}
             </Button>
