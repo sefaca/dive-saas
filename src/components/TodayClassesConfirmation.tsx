@@ -86,7 +86,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
     const endTime = classItem.programmed_class.end_time;
     const duration = classItem.programmed_class.duration_minutes || 60; // Duración por defecto 60 min
     const className = classItem.programmed_class.name;
-    const trainerName = classItem.programmed_class.trainer?.full_name || 'Entrenador';
+    const trainerName = classItem.programmed_class.trainer?.full_name || 'Instructor';
 
     // Normalizar tiempos (asegurar formato HH:MM:SS)
     const normalizeTime = (time: string) => {
@@ -130,7 +130,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
     const googleCalendarUrl = new URL('https://calendar.google.com/calendar/render');
     googleCalendarUrl.searchParams.append('action', 'TEMPLATE');
     googleCalendarUrl.searchParams.append('text', `${className}`);
-    googleCalendarUrl.searchParams.append('details', `Clase de pádel con ${trainerName}`);
+    googleCalendarUrl.searchParams.append('details', `Dive session with ${trainerName}`);
     googleCalendarUrl.searchParams.append('dates', `${startFormatted}/${endFormatted}`);
     googleCalendarUrl.searchParams.append('ctz', 'Europe/Madrid');
 
@@ -146,7 +146,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
             <div className="p-2 bg-gradient-to-br from-primary to-accent rounded-xl">
               <Calendar className="h-6 w-6 text-white" />
             </div>
-            Próximas clases
+            Upcoming Sessions
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -174,7 +174,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
             <div className="p-2 bg-gradient-to-br from-primary to-accent rounded-xl">
               <Calendar className="h-6 w-6 text-white" />
             </div>
-            Próximas clases
+            Upcoming Sessions
           </h2>
         </div>
         <Card className="border-0 shadow-lg bg-gradient-to-br from-slate-50 to-white rounded-2xl text-center">
@@ -182,12 +182,12 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
             <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Clock className="h-8 w-8 text-slate-400" />
             </div>
-            <h3 className="text-lg font-semibold text-slate-700 mb-2">Sin clases programadas</h3>
+            <h3 className="text-lg font-semibold text-slate-700 mb-2">No scheduled sessions</h3>
             <p className="text-slate-500 text-sm">
-              No tienes clases en los próximos 10 días
+              You don't have sessions in the next 10 days
             </p>
             <p className="text-slate-400 text-xs mt-2">
-              ¡Disfruta tu tiempo libre! 🎉
+              Enjoy your free time! 🎉
             </p>
           </CardContent>
         </Card>
@@ -203,7 +203,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
       {/* Header - Responsive: stacked on mobile, inline on desktop */}
       <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-4">
         <div className="flex-1">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-800">Próximas clases</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-800">Upcoming Sessions</h2>
         </div>
 
         {/* Reminder Banner - Full width on mobile, 50% on desktop */}
@@ -215,10 +215,10 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
               </div>
               <div className="min-w-0">
                 <p className="text-xs sm:text-sm font-medium text-amber-800">
-                  Confirma tu asistencia
+                  Confirm your attendance
                 </p>
                 <p className="text-xs text-amber-600 mt-0.5 sm:mt-1 line-clamp-2">
-                  Ayuda a tu entrenador a planificar mejor las clases.
+                  Help your instructor plan sessions better.
                 </p>
               </div>
             </div>
@@ -279,7 +279,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
                       <User className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-primary" />
                     </div>
                     <span className="text-xs sm:text-sm font-medium truncate">
-                      {classItem.programmed_class.trainer?.full_name || 'Entrenador no asignado'}
+                      {classItem.programmed_class.trainer?.full_name || 'Instructor not assigned'}
                     </span>
                   </div>
                 </div>
@@ -305,7 +305,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
                           `}
                         >
                           <CheckCircle2 className="h-3.5 w-3.5 mr-1" />
-                          Voy
+                          Attending
                         </Button>
                       )}
 
@@ -319,7 +319,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
                           className="border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700 hover:border-red-300 px-3 py-1 h-8"
                         >
                           <XCircle className="h-3.5 w-3.5 mr-1" />
-                          No voy
+                          Not attending
                         </Button>
                       )}
 
@@ -332,7 +332,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
                           disabled={cancelAbsence.isPending}
                           className="border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-slate-700 hover:border-slate-300 px-3 py-1 h-8"
                         >
-                          Cancelar ausencia
+                          Cancel absence
                         </Button>
                       )}
 
@@ -344,7 +344,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
                         className="border-blue-200 text-blue-600 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-300 px-3 py-1 h-8 md:hidden"
                       >
                         <CalendarPlus className="h-3.5 w-3.5 mr-1" />
-                        Agregar
+                        Add
                       </Button>
                     </div>
 
@@ -353,7 +353,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
                       <div className="flex items-start gap-2 p-2 bg-amber-50 border border-amber-200 rounded-lg">
                         <AlertCircle className="h-4 w-4 text-amber-600 flex-shrink-0 mt-0.5" />
                         <p className="text-xs text-amber-800">
-                        Tu ausencia ha sido registrada correctamente. No es posible realizar cambios en este momento. ¡Gracias por avisar!                        </p>
+                        Your absence has been recorded successfully. It's not possible to make changes at this time. Thanks for letting us know!                        </p>
                       </div>
                     )}
                   </div>
