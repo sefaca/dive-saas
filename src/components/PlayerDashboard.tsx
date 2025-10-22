@@ -66,11 +66,11 @@ const PlayerDashboard = () => {
   const getStatusText = (status: string) => {
     switch (status) {
       case 'active':
-        return 'Activa';
+        return 'Active';
       case 'upcoming':
-        return 'Próximamente';
+        return 'Upcoming';
       case 'completed':
-        return 'Finalizada';
+        return 'Completed';
       default:
         return status;
     }
@@ -78,39 +78,39 @@ const PlayerDashboard = () => {
 
   return (
     <div className="min-h-screen overflow-y-auto flex flex-col gap-4 sm:gap-6 p-3 sm:p-4 lg:p-6">
-      {/* Encabezado con bienvenida y Selector - Responsive */}
+      {/* Header with welcome and Selector - Responsive */}
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-        {/* Título y subtítulo */}
+        {/* Title and subtitle */}
         <div className="space-y-2">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
-            ¡Hola, {profile?.full_name?.split(' ')[0]}!
+            Hello, {profile?.full_name?.split(' ')[0]}!
           </h1>
           <p className="text-sm sm:text-base text-gray-500">
-            Bienvenido a tu panel de control
+            Welcome to your dashboard
           </p>
         </div>
 
-        {/* Selector de Hijos - Solo para Guardians */}
+        {/* Children Selector - Guardian Only */}
         {isGuardian && children && children.length > 0 && (
           <div className="flex items-center gap-2 lg:gap-3">
             <div className="flex items-center gap-2 text-gray-700">
               <Users className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
-              <span className="font-medium text-xs sm:text-sm whitespace-nowrap">Ver clases de:</span>
+              <span className="font-medium text-xs sm:text-sm whitespace-nowrap">View sessions for:</span>
             </div>
             <Select value={selectedChildId} onValueChange={setSelectedChildId}>
               <SelectTrigger className="w-full sm:w-[200px] lg:w-[240px]">
-                <SelectValue placeholder="Selecciona un hijo" />
+                <SelectValue placeholder="Select a child" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">
                   <div className="flex items-center gap-2">
                     <Users className="h-4 w-4" />
-                    <span>Todos mis hijos</span>
+                    <span>All my children</span>
                   </div>
                 </SelectItem>
                 {children.map((child) => (
                   <SelectItem key={child.id} value={child.id}>
-                    {child.full_name || 'Sin nombre'}
+                    {child.full_name || 'No name'}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -119,10 +119,10 @@ const PlayerDashboard = () => {
         )}
       </div>
 
-      {/* Confirmación de Clases de Hoy - Destacado */}
+      {/* Today's Sessions Confirmation - Featured */}
       <TodayClassesConfirmation selectedChildId={isGuardian ? selectedChildId : undefined} />
 
-      {/* Modal de confirmación de inscripción */}
+      {/* Registration confirmation modal */}
       <LeagueRegistrationModal
         league={registrationLeague}
         isOpen={!!registrationLeague}
