@@ -21,26 +21,26 @@ const UserMenu = () => {
   const getRoleColor = (role: string) => {
     switch (role) {
       case 'admin':
-        return 'bg-playtomic-orange text-white';
+        return 'bg-ocean-coral text-white';
       case 'trainer':
-        return 'bg-playtomic-green text-white';
+        return 'bg-ocean-marine text-white';
       default:
-        return 'bg-playtomic-gray-100 text-playtomic-gray-800';
+        return 'bg-gray-100 text-gray-800';
     }
   };
 
   const getRoleText = (role: string) => {
     switch (role) {
       case 'admin':
-        return 'Administrador';
+        return 'Administrator';
       case 'trainer':
-        return 'Entrenador';
+        return 'Instructor';
       case 'guardian':
-        return 'Tutor';
+        return 'Guardian';
       case 'owner':
-        return 'Propietario';
+        return 'Owner';
       default:
-        return 'Jugador';
+        return 'Diver';
     }
   };
 
