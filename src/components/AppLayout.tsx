@@ -17,8 +17,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LogOut, Settings } from "lucide-react";
-import PadeLockLogo from "@/assets/PadeLock_D5Red.png";
+import { LogOut, Settings, Waves } from "lucide-react";
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -39,29 +38,29 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       case "/dashboard/":
         return { title: "Dashboard", path: "/dashboard" };
       case "/dashboard/players":
-        return { title: "Jugadores", path: "/dashboard/players" };
+        return { title: "Divers", path: "/dashboard/players" };
       case "/dashboard/clubs":
-        return { title: "Clubs", path: "/dashboard/clubs" };
+        return { title: "Dive Centers", path: "/dashboard/clubs" };
       case "/dashboard/classes":
-        return { title: "Clases", path: "/dashboard/classes" };
+        return { title: "Sessions", path: "/dashboard/classes" };
       case "/dashboard/leagues":
-        return { title: "Ligas", path: "/dashboard/leagues" };
+        return { title: "Tournaments", path: "/dashboard/leagues" };
       case "/dashboard/matches":
-        return { title: "Partidos", path: "/dashboard/matches" };
+        return { title: "Competitions", path: "/dashboard/matches" };
       case "/dashboard/standings":
-        return { title: "Clasificaciones", path: "/dashboard/standings" };
+        return { title: "Rankings", path: "/dashboard/standings" };
       case "/dashboard/league-players":
-        return { title: "Inscripciones", path: "/dashboard/league-players" };
+        return { title: "Registrations", path: "/dashboard/league-players" };
       case "/dashboard/payment-control":
-        return { title: "Control de Pagos", path: "/dashboard/payment-control" };
+        return { title: "Payment Control", path: "/dashboard/payment-control" };
       case "/dashboard/scheduled-classes":
-        return { title: "Clases Programadas", path: "/dashboard/scheduled-classes" };
+        return { title: "Dive Sessions", path: "/dashboard/scheduled-classes" };
       case "/dashboard/trainers":
-        return { title: "Profesores", path: "/dashboard/trainers" };
+        return { title: "Instructors", path: "/dashboard/trainers" };
       case "/dashboard/waitlist-notifications":
-        return { title: "Notificaciones", path: "/dashboard/waitlist-notifications" };
+        return { title: "Notifications", path: "/dashboard/waitlist-notifications" };
       case "/dashboard/today-attendance":
-        return { title: "Asistencia de hoy", path: "/dashboard/today-attendance" };
+        return { title: "Today's Attendance", path: "/dashboard/today-attendance" };
       default:
         return { title: "Dashboard", path: "/dashboard" };
     }
@@ -76,8 +75,11 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         <div className="flex min-h-screen w-full flex-col">
           {/* Mobile Header - Only visible on mobile */}
           <header className="md:hidden flex h-14 shrink-0 items-center justify-between px-4 border-b bg-sidebar shadow-sm sticky top-0 z-40">
-            <Link to="/dashboard" className="flex items-center">
-              <img src={PadeLockLogo} alt="PadeLock" className="h-10 object-contain" />
+            <Link to="/dashboard" className="flex items-center gap-2">
+              <Waves className="h-8 w-8 text-ocean-tropical" />
+              <span className="text-lg font-bold text-sidebar-foreground">
+                Dive<span className="text-ocean-tropical">SaaS</span>
+              </span>
             </Link>
 
             {/* Mobile User Menu */}
@@ -130,7 +132,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                       <BreadcrumbItem className="hidden md:block">
                         <BreadcrumbLink asChild>
                           <Link to="/dashboard">
-                            PadeLock
+                            DiveSaaS
                           </Link>
                         </BreadcrumbLink>
                       </BreadcrumbItem>
@@ -171,7 +173,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                 <BreadcrumbItem className="hidden md:block">
                   <BreadcrumbLink asChild>
                     <Link to="/dashboard">
-                      PadeLock
+                      DiveSaaS
                     </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
