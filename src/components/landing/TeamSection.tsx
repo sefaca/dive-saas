@@ -20,9 +20,9 @@ const TeamSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Nuestro Equipo
+            Our Team
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Conoce a los co-fundadores que están revolucionando la gestión de academias de pádel</p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Meet the co-founders revolutionizing dive center management</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -39,10 +39,10 @@ const TeamSection = () => {
                     {member.role}
                   </p>
                   <div className="flex space-x-4">
-                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center text-muted-foreground hover:text-primary transition-colors" aria-label={`LinkedIn de ${member.name}`}>
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center text-muted-foreground hover:text-primary transition-colors" aria-label={`${member.name}'s LinkedIn`}>
                       <Linkedin className="h-5 w-5" />
                     </a>
-                    <a href={`mailto:${member.email}`} className="flex items-center text-muted-foreground hover:text-primary transition-colors" aria-label={`Email de ${member.name}`}>
+                    <a href={`mailto:${member.email}`} className="flex items-center text-muted-foreground hover:text-primary transition-colors" aria-label={`${member.name}'s Email`}>
                       <Mail className="h-5 w-5" />
                     </a>
                   </div>
