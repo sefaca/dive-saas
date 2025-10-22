@@ -66,8 +66,8 @@ const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
     return (
       <div className="flex h-screen items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-playtomic-orange mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Cargando...</p>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-ocean-tropical mx-auto mb-4"></div>
+          <p className="text-muted-foreground">Loading...</p>
         </div>
       </div>
     );
@@ -82,13 +82,13 @@ const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">Error de Autenticación</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">Authentication Error</h2>
           <p className="text-gray-600 mb-6">{authError}</p>
           <button
             onClick={retryAuth}
-            className="bg-playtomic-orange hover:bg-playtomic-orange-dark text-white px-4 py-2 rounded-md transition-colors"
+            className="bg-gradient-to-r from-ocean-deep to-ocean-tropical hover:from-ocean-deep/90 hover:to-ocean-tropical/90 text-white px-4 py-2 rounded-md transition-colors"
           >
-            Reintentar
+            Retry
           </button>
         </div>
       </div>
@@ -112,8 +112,8 @@ function App() {
     return (
       <div className="flex h-screen items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-playtomic-orange mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Inicializando PadelLock...</p>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-ocean-tropical mx-auto mb-4"></div>
+          <p className="text-muted-foreground">Initializing DiveSaaS...</p>
         </div>
       </div>
     );
@@ -128,13 +128,13 @@ function App() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">Error de Aplicación</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">Application Error</h2>
           <p className="text-gray-600 mb-6">{authError}</p>
           <button
             onClick={retryAuth}
-            className="bg-playtomic-orange hover:bg-playtomic-orange-dark text-white px-4 py-2 rounded-md transition-colors"
+            className="bg-gradient-to-r from-ocean-deep to-ocean-tropical hover:from-ocean-deep/90 hover:to-ocean-tropical/90 text-white px-4 py-2 rounded-md transition-colors"
           >
-            Reintentar
+            Retry
           </button>
         </div>
       </div>

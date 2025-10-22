@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Building2, Calendar, GraduationCap, LogOut, SquareTerminal, Trophy, UserCheck, Users, Zap, Bell, CreditCard, BookOpen, ClipboardCheck, MapPin, Phone, Settings } from "lucide-react";
+import { Building2, Calendar, GraduationCap, LogOut, SquareTerminal, Trophy, UserCheck, Users, Zap, Bell, CreditCard, BookOpen, ClipboardCheck, MapPin, Phone, Settings, Waves, Ship } from "lucide-react";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
 import { Badge } from "@/components/ui/badge";
 import UserMenu from "@/components/UserMenu";
@@ -8,7 +8,6 @@ import { useWaitlistCount } from "@/hooks/useWaitlistCount";
 import { useTranslation } from "react-i18next";
 import { useFeatureFlags } from "@/hooks/useFeatureFlags";
 import { useClub } from "@/hooks/useClub";
-import PadeLockLogo from "@/assets/PadeLock_D5Red.png";
 const AppSidebar = () => {
   const authContext = useAuth();
   const { data: waitlistCount = 0 } = useWaitlistCount();
@@ -32,8 +31,11 @@ const AppSidebar = () => {
   if (isTrainer) {
     return <Sidebar variant="inset" className="w-64">
         <SidebarHeader className="flex items-center justify-center py-3">
-          <Link to="/" className="flex items-center justify-center">
-            <img src={PadeLockLogo} alt="PadeLock" className="w-30 h-20 object-contain" />
+          <Link to="/" className="flex items-center justify-center gap-2">
+            <Waves className="h-10 w-10 text-ocean-tropical" />
+            <span className="text-2xl font-bold text-sidebar-foreground">
+              Dive<span className="text-ocean-tropical">SaaS</span>
+            </span>
           </Link>
         </SidebarHeader>
         <SidebarContent>
@@ -51,7 +53,7 @@ const AppSidebar = () => {
                 <SidebarMenuButton asChild isActive={location.pathname === "/dashboard/students"}>
                 <Link to="/dashboard/students">
                   <Users />
-                  <span>Alumnos</span>
+                  <span>Students</span>
                 </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -59,7 +61,7 @@ const AppSidebar = () => {
                 <SidebarMenuButton asChild isActive={location.pathname === "/dashboard/scheduled-classes"}>
                 <Link to="/dashboard/scheduled-classes">
                   <Calendar />
-                  <span>{t('sidebar.scheduledClasses')}</span>
+                  <span>Scheduled Dive Sessions</span>
                 </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -67,7 +69,7 @@ const AppSidebar = () => {
                 <SidebarMenuButton asChild isActive={location.pathname === "/dashboard/today-attendance"}>
                 <Link to="/dashboard/today-attendance">
                   <ClipboardCheck />
-                  <span>Asistencia Hoy</span>
+                  <span>Today's Attendance</span>
                 </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -99,12 +101,12 @@ const AppSidebar = () => {
         isActive: true
       },
       {
-        title: "Mis Pagos",
+        title: "My Bookings",
         url: "/dashboard/my-classes",
         icon: BookOpen
       },
       ...(isGuardian ? [{
-        title: "Mis Hijos",
+        title: "My Children",
         url: "/dashboard/my-children",
         icon: Users
       }] : []),
@@ -116,8 +118,11 @@ const AppSidebar = () => {
     ];
     return <Sidebar variant="inset" className="w-64">
         <SidebarHeader className="flex items-center justify-center py-3">
-          <Link to="/" className="flex items-center justify-center">
-            <img src={PadeLockLogo} alt="PadeLock" className="w-30 h-20 object-contain" />
+          <Link to="/" className="flex items-center justify-center gap-2">
+            <Waves className="h-10 w-10 text-ocean-tropical" />
+            <span className="text-2xl font-bold text-sidebar-foreground">
+              Dive<span className="text-ocean-tropical">SaaS</span>
+            </span>
           </Link>
         </SidebarHeader>
         <SidebarContent>
@@ -169,32 +174,32 @@ const AppSidebar = () => {
         icon: Zap
       }] : []),
       {
-        title: t('sidebar.scheduledClasses'),
+        title: "Dive Sessions",
         url: "/dashboard/scheduled-classes",
-        icon: Calendar
+        icon: Ship
       },
       {
-        title: "Asistencia Hoy",
+        title: "Today's Attendance",
         url: "/dashboard/today-attendance",
         icon: ClipboardCheck
       },
       {
-        title: "Control de Pagos",
+        title: "Payment Control",
         url: "/dashboard/payment-control",
         icon: CreditCard
       },
       {
-        title: t('sidebar.players'),
+        title: "Divers",
         url: "/dashboard/players",
         icon: Users
       },
       {
-        title: t('sidebar.trainers'),
+        title: "Instructors",
         url: "/dashboard/trainers",
         icon: UserCheck
       },
       {
-        title: t('sidebar.clubs'),
+        title: "Dive Centers",
         url: "/dashboard/clubs",
         icon: Building2
       }
@@ -202,8 +207,11 @@ const AppSidebar = () => {
   };
   return <Sidebar variant="inset" className="w-64">
       <SidebarHeader className="flex items-center justify-center py-3">
-        <Link to="/" className="flex items-center justify-center">
-          <img src={PadeLockLogo} alt="PadeLock" className="w-30 h-20 object-contain" />
+        <Link to="/" className="flex items-center justify-center gap-2">
+          <Waves className="h-10 w-10 text-ocean-tropical" />
+          <span className="text-2xl font-bold text-sidebar-foreground">
+            Dive<span className="text-ocean-tropical">SaaS</span>
+          </span>
         </Link>
       </SidebarHeader>
       <SidebarContent>
