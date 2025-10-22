@@ -10,17 +10,17 @@ const MobileTabBar = () => {
   // Tabs for players
   const playerTabs = [
     {
-      name: "Inicio",
+      name: "Home",
       path: "/dashboard",
       icon: Home,
     },
     {
-      name: "Mis Pagos",
+      name: "Bookings",
       path: "/dashboard/my-classes",
       icon: CreditCard,
     },
     ...(isGuardian ? [{
-      name: "Mis Hijos",
+      name: "Children",
       path: "/dashboard/my-children",
       icon: Users,
     }] : []),
@@ -29,22 +29,22 @@ const MobileTabBar = () => {
   // Tabs for trainers
   const trainerTabs = [
     {
-      name: "Inicio",
+      name: "Home",
       path: "/dashboard",
       icon: Home,
     },
     {
-      name: "Alumnos",
+      name: "Students",
       path: "/dashboard/students",
       icon: Users,
     },
     {
-      name: "Clases",
+      name: "Sessions",
       path: "/dashboard/scheduled-classes",
       icon: Calendar,
     },
     {
-      name: "Asistencia",
+      name: "Attendance",
       path: "/dashboard/today-attendance",
       icon: ClipboardCheck,
     },
