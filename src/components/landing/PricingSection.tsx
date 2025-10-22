@@ -5,60 +5,60 @@ import { Badge } from "@/components/ui/badge";
 
 const pricingTiers = [
   {
-    range: "1-10 clubes",
+    range: "1-10 dive centers",
     price: "50",
-    description: "Primeros pasos",
+    description: "Getting started",
     isActive: true
   },
   {
-    range: "11-50 clubes", 
+    range: "11-50 dive centers",
     price: "100",
-    description: "Crecimiento",
+    description: "Growing",
     isActive: false
   },
   {
-    range: "51+ clubes",
+    range: "51+ dive centers",
     price: "200",
-    description: "Expansión",
+    description: "Expanding",
     isActive: false
   }
 ];
 
 const allFeatures = [
-  "Gestión completa de clases y horarios",
-  "Panel para jugadores y entrenadores",
-  "Sistema de reservas automático",
-  "Notificaciones automáticas por WhatsApp",
-  "Pagos integrados con Stripe",
-  "Apps móviles nativas",
-  "Sistema de listas de espera inteligente",
-  "Reportes y analytics avanzados",
-  "Soporte técnico incluido",
-  "Configuración y migración gratuita",
-  "Almacenamiento en la nube",
-  "Entrenadores ilimitados"
+  "Complete dive trip and schedule management",
+  "Dashboard for divers and instructors",
+  "Automatic booking system",
+  "Automated WhatsApp notifications",
+  "Integrated payments with Stripe",
+  "Native mobile apps",
+  "Smart waitlist system",
+  "Advanced reports and analytics",
+  "Technical support included",
+  "Free setup and migration",
+  "Cloud storage",
+  "Unlimited instructors"
 ];
 
 const includedFeatures = [
   {
     icon: Clock,
-    title: "Setup incluido",
-    description: "Configuración completa sin coste adicional"
+    title: "Setup included",
+    description: "Complete configuration at no additional cost"
   },
   {
     icon: Smartphone,
-    title: "Apps móviles",
-    description: "Para entrenadores y jugadores incluidas"
+    title: "Mobile apps",
+    description: "For instructors and divers included"
   },
   {
     icon: Shield,
-    title: "Datos seguros",
-    description: "Encriptación SSL y backups automáticos"
+    title: "Secure data",
+    description: "SSL encryption and automatic backups"
   },
   {
     icon: Users,
-    title: "Soporte técnico",
-    description: "Asistencia durante el proceso de implantación"
+    title: "Technical support",
+    description: "Assistance during implementation process"
   }
 ];
 
@@ -74,23 +74,23 @@ export const PricingSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-6">
-            <CreditCard className="h-4 w-4 mr-2" /> Precio escalado según crecimiento
+            <CreditCard className="h-4 w-4 mr-2" /> Scaled pricing based on growth
           </div>
-          
+
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Un precio que crece contigo
+            Pricing that grows with you
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
-            Todas las funcionalidades incluidas desde el primer día. 
-            Solo pagas más a medida que creces y tenemos más clientes.
+            All features included from day one.
+            You only pay more as you grow and we gain more clients.
           </p>
-          
+
           <div className="inline-flex items-center space-x-2 bg-muted/50 rounded-full px-4 py-2 border">
             <Badge variant="secondary" className="bg-primary text-primary-foreground">
               <Zap className="h-3 w-3 mr-1" />
-              30 días gratis
+              30 days free
             </Badge>
-            <span className="text-sm">Sin permanencia • Cancela cuando quieras</span>
+            <span className="text-sm">No commitment • Cancel anytime</span>
           </div>
         </div>
 
@@ -129,11 +129,11 @@ export const PricingSection = () => {
                   </CardHeader>
                   
                   <CardContent>
-                    <Button 
+                    <Button
                       className={`w-full ${tier.isActive ? 'bg-primary hover:bg-primary/90' : 'bg-secondary hover:bg-secondary/90'}`}
                       onClick={scrollToContact}
                     >
-                      Comenzar
+                      Get Started
                     </Button>
                   </CardContent>
                 </Card>
@@ -146,8 +146,8 @@ export const PricingSection = () => {
         <div className="max-w-4xl mx-auto mb-16">
           <Card className="border-2 border-primary/20 shadow-lg">
             <CardHeader className="text-center pb-6">
-              <h3 className="text-2xl font-bold">Todas las funcionalidades incluidas</h3>
-              <p className="text-muted-foreground">Sin restricciones en ningún nivel de precio</p>
+              <h3 className="text-2xl font-bold">All features included</h3>
+              <p className="text-muted-foreground">No restrictions at any price level</p>
             </CardHeader>
             
             <CardContent>
@@ -167,20 +167,20 @@ export const PricingSection = () => {
         <div className="mt-12 text-center space-y-6 max-w-3xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-2 p-4 rounded-lg bg-muted/20">
-              <div className="font-semibold">💳 Sin sorpresas</div>
-              <div className="text-sm text-muted-foreground">Precios transparentes sin costes ocultos</div>
+              <div className="font-semibold">💳 No surprises</div>
+              <div className="text-sm text-muted-foreground">Transparent pricing with no hidden costs</div>
             </div>
             <div className="space-y-2 p-4 rounded-lg bg-muted/20">
-              <div className="font-semibold">🔄 Migración gratuita</div>
-              <div className="text-sm text-muted-foreground">Te ayudamos a importar tus datos actuales</div>
+              <div className="font-semibold">🔄 Free migration</div>
+              <div className="text-sm text-muted-foreground">We help you import your current data</div>
             </div>
           </div>
 
           <div className="pt-6 border-t border-border/50">
             <div className="text-sm text-muted-foreground">
-              ¿Necesitas un plan personalizado o tienes preguntas? 
+              Need a custom plan or have questions?
               <button onClick={scrollToContact} className="text-primary hover:underline font-medium ml-1">
-                Contáctanos
+                Contact us
               </button>
             </div>
           </div>
