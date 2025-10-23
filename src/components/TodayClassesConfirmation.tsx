@@ -130,7 +130,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
     const googleCalendarUrl = new URL('https://calendar.google.com/calendar/render');
     googleCalendarUrl.searchParams.append('action', 'TEMPLATE');
     googleCalendarUrl.searchParams.append('text', `${className}`);
-    googleCalendarUrl.searchParams.append('details', `Dive session with ${trainerName}`);
+    googleCalendarUrl.searchParams.append('details', `Dive trip with ${trainerName}`);
     googleCalendarUrl.searchParams.append('dates', `${startFormatted}/${endFormatted}`);
     googleCalendarUrl.searchParams.append('ctz', 'Europe/Madrid');
 
@@ -146,7 +146,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
             <div className="p-2 bg-gradient-to-br from-primary to-accent rounded-xl">
               <Calendar className="h-6 w-6 text-white" />
             </div>
-            Upcoming Sessions
+            Upcoming Trips
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -174,7 +174,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
             <div className="p-2 bg-gradient-to-br from-primary to-accent rounded-xl">
               <Calendar className="h-6 w-6 text-white" />
             </div>
-            Upcoming Sessions
+            Upcoming Trips
           </h2>
         </div>
         <Card className="border-0 shadow-lg bg-gradient-to-br from-slate-50 to-white rounded-2xl text-center">
@@ -182,9 +182,9 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
             <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Clock className="h-8 w-8 text-slate-400" />
             </div>
-            <h3 className="text-lg font-semibold text-slate-700 mb-2">No scheduled sessions</h3>
+            <h3 className="text-lg font-semibold text-slate-700 mb-2">No scheduled trips</h3>
             <p className="text-slate-500 text-sm">
-              You don't have sessions in the next 10 days
+              You don't have trips in the next 10 days
             </p>
             <p className="text-slate-400 text-xs mt-2">
               Enjoy your free time! 🎉
@@ -203,7 +203,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
       {/* Header - Responsive: stacked on mobile, inline on desktop */}
       <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-4">
         <div className="flex-1">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-800">Upcoming Sessions</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-800">Upcoming Trips</h2>
         </div>
 
         {/* Reminder Banner - Full width on mobile, 50% on desktop */}
@@ -218,7 +218,7 @@ export const TodayClassesConfirmation = ({ selectedChildId }: TodayClassesConfir
                   Confirm your attendance
                 </p>
                 <p className="text-xs text-amber-600 mt-0.5 sm:mt-1 line-clamp-2">
-                  Help your instructor plan sessions better.
+                  Help your instructor plan trips better.
                 </p>
               </div>
             </div>

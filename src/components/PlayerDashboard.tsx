@@ -95,7 +95,7 @@ const PlayerDashboard = () => {
           <div className="flex items-center gap-2 lg:gap-3">
             <div className="flex items-center gap-2 text-gray-700">
               <Users className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
-              <span className="font-medium text-xs sm:text-sm whitespace-nowrap">View sessions for:</span>
+              <span className="font-medium text-xs sm:text-sm whitespace-nowrap">View trips for:</span>
             </div>
             <Select value={selectedChildId} onValueChange={setSelectedChildId}>
               <SelectTrigger className="w-full sm:w-[200px] lg:w-[240px]">
