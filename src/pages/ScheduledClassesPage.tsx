@@ -4,17 +4,20 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useActiveClubs } from "@/hooks/useActiveClubs";
 import { TripSheet } from "@/components/trips/TripSheet";
 import { CreateTrip } from "@/components/trips/CreateTrip";
-import { CalendarTrip } from "@/components/trips/CalendarTrip";
+import ClassCalendarView from "@/components/ClassCalendarView";
+import { ClassFiltersProvider, useClassFilters } from "@/contexts/ClassFiltersContext";
 
 type TripView = 'sheet' | 'create' | 'calendar';
 
-function ScheduledClassesPage() {
+function ScheduledClassesContent() {
   const [activeView, setActiveView] = useState<TripView>('sheet');
   const { profile } = useAuth();
   const { data: clubs } = useActiveClubs();
+  const { filters } = useClassFilters();
 
   // Get the current club based on user profile
   const currentClub = profile?.club_id ? clubs?.find(c => c.id === profile.club_id) : clubs?.[0];
+  const adminClubs = profile?.role === 'admin' && !profile?.club_id ? clubs : [];
 
   if (!currentClub) {
     return (
@@ -82,9 +85,25 @@ function ScheduledClassesPage() {
       <div className="flex-1 overflow-y-auto bg-white">
         {activeView === 'sheet' && <TripSheet />}
         {activeView === 'create' && <CreateTrip />}
-        {activeView === 'calendar' && <CalendarTrip />}
+        {activeView === 'calendar' && (
+          <div className="p-4">
+            <ClassCalendarView
+              clubId={adminClubs?.length ? undefined : currentClub?.id}
+              clubIds={adminClubs?.length ? adminClubs.map(c => c.id) : undefined}
+              filters={filters}
+            />
+          </div>
+        )}
       </div>
     </div>
+  );
+}
+
+function ScheduledClassesPage() {
+  return (
+    <ClassFiltersProvider>
+      <ScheduledClassesContent />
+    </ClassFiltersProvider>
   );
 }
 
