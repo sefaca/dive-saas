@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Users, UserPlus, ArrowRight, Loader2, PartyPopper } from 'lucide-react';
+import { Users, UserPlus, ArrowRight, Loader2, PartyPopper, Waves } from 'lucide-react';
 import { useGuardianChildren, GuardianChild } from '@/hooks/useGuardianChildren';
 import { AddChildModal } from '@/components/AddChildModal';
 import { useAuth } from '@/contexts/AuthContext';
-import padelockLogo from '@/assets/PadeLock_D5Red.png';
 
 const GuardianSetupPage = () => {
   const navigate = useNavigate();
@@ -67,36 +66,37 @@ const GuardianSetupPage = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-playtomic-dark to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-ocean-deep/90 via-ocean-tropical/20 to-ocean-deep/90 flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-12 w-12 text-playtomic-orange animate-spin" />
-          <p className="text-white text-lg">Cargando...</p>
+          <Loader2 className="h-12 w-12 text-ocean-tropical animate-spin" />
+          <p className="text-white text-lg">Loading...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-slate-900 via-playtomic-dark to-slate-900 p-4 sm:p-6 lg:p-8">
-      {/* Elementos decorativos de fondo */}
+    <div className="min-h-screen w-full bg-gradient-to-br from-ocean-deep/90 via-ocean-tropical/20 to-ocean-deep/90 p-4 sm:p-6 lg:p-8">
+      {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-playtomic-orange/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-playtomic-orange/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-ocean-tropical/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-ocean-marine/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <img
-            src={padelockLogo}
-            alt="PadeLock Logo"
-            className="h-20 sm:h-24 lg:h-28 w-auto mx-auto mb-6 drop-shadow-2xl"
-          />
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            ¡Bienvenido a PadeLock!
-          </h1>
+          <div className="flex justify-center items-center gap-4 mb-6">
+            <Waves className="h-20 sm:h-24 lg:h-28 w-20 sm:w-24 lg:w-28 text-ocean-tropical drop-shadow-2xl" />
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-2xl">
+              Dive<span className="text-ocean-tropical">SaaS</span>
+            </h1>
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
+            Welcome to DiveSaaS!
+          </h2>
           <p className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto">
-            Añade el perfil de tus hijos para poder inscribirles en clases y gestionar su asistencia
+            Add your children's profiles to enroll them in dive sessions and manage their attendance
           </p>
         </div>
 
@@ -107,10 +107,10 @@ const GuardianSetupPage = () => {
             <Button
               onClick={() => setIsAddChildModalOpen(true)}
               size="lg"
-              className="bg-gradient-to-r from-playtomic-orange to-orange-600 hover:from-playtomic-orange/90 hover:to-orange-700 text-white font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
+              className="bg-gradient-to-r from-ocean-tropical to-orange-600 hover:from-ocean-tropical/90 hover:to-orange-700 text-white font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
             >
               <UserPlus className="h-5 w-5 mr-2" />
-              Añadir Hijo/a
+              Add Child
             </Button>
           </div>
 
@@ -120,10 +120,10 @@ const GuardianSetupPage = () => {
               <CardContent className="py-12 text-center">
                 <Users className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2 text-slate-800">
-                  No has añadido ningún hijo todavía
+                  You haven't added any children yet
                 </h3>
                 <p className="text-base text-muted-foreground px-4">
-                  Haz clic en "Añadir Hijo/a" para empezar
+                  Click "Add Child" to get started
                 </p>
               </CardContent>
             </Card>
@@ -136,10 +136,10 @@ const GuardianSetupPage = () => {
                     <PartyPopper className="h-8 w-8 flex-shrink-0" />
                     <div className="text-left">
                       <h3 className="text-lg font-bold">
-                        ¡Perfecto! Has añadido {children.length} {children.length === 1 ? 'hijo' : 'hijos'}
+                        Perfect! You've added {children.length} {children.length === 1 ? 'child' : 'children'}
                       </h3>
                       <p className="text-sm text-white/90">
-                        Puedes añadir más o continuar al dashboard
+                        You can add more or continue to the dashboard
                       </p>
                     </div>
                   </div>
@@ -154,11 +154,11 @@ const GuardianSetupPage = () => {
                   return (
                     <Card
                       key={child.id}
-                      className="border-0 shadow-md bg-white/95 backdrop-blur-xl border-l-4 border-l-playtomic-orange hover:shadow-lg transition-shadow"
+                      className="border-0 shadow-md bg-white/95 backdrop-blur-xl border-l-4 border-l-ocean-tropical hover:shadow-lg transition-shadow"
                     >
                       <CardContent className="p-4">
                         <div className="text-center">
-                          <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-playtomic-orange to-orange-600 rounded-full flex items-center justify-center">
+                          <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-ocean-tropical to-orange-600 rounded-full flex items-center justify-center">
                             <Users className="h-6 w-6 text-white" />
                           </div>
                           <h4 className="text-base font-bold text-slate-800 mb-1 truncate">
@@ -166,12 +166,12 @@ const GuardianSetupPage = () => {
                           </h4>
                           {age !== null && (
                             <p className="text-xs text-muted-foreground mb-0.5">
-                              {age} años
+                              {age} years old
                             </p>
                           )}
                           {child.level && (
                             <p className="text-xs text-muted-foreground">
-                              Nivel {child.level}
+                              Level {child.level}
                             </p>
                           )}
                         </div>
@@ -191,7 +191,7 @@ const GuardianSetupPage = () => {
                 size="lg"
                 className="bg-white text-slate-900 hover:bg-white/90 hover:scale-105 font-semibold shadow-lg transition-all duration-200"
               >
-                No añadir más hijos
+                Don't add more children
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Button>
             )}
@@ -204,7 +204,7 @@ const GuardianSetupPage = () => {
                 onClick={handleFinishSetup}
                 className="text-slate-300 hover:text-white text-sm underline transition-colors"
               >
-                Omitir por ahora (puedes añadir hijos más tarde)
+                Skip for now (you can add children later)
               </button>
             </div>
           )}
