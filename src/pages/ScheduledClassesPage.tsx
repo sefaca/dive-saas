@@ -51,7 +51,7 @@ function ScheduledClassesContent() {
         <Card>
           <CardContent className="py-8">
             <div className="text-center text-muted-foreground">
-              No tienes acceso a ningún club. Contacta con el administrador.
+              You don't have access to any dive center. Contact the administrator.
             </div>
           </CardContent>
         </Card>
@@ -64,7 +64,7 @@ function ScheduledClassesContent() {
           <div className="min-w-0">
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold truncate">{t('pages.scheduledClasses.title')}</h1>
             <p className="text-xs sm:text-sm text-muted-foreground mt-1 line-clamp-2">
-              {adminClubs && adminClubs.length > 1 ? `${t('pages.scheduledClasses.description')} todos tus clubes` : `${t('pages.scheduledClasses.description')} ${currentClub.name}`}
+              {adminClubs && adminClubs.length > 1 ? `${t('pages.scheduledClasses.description')} all your dive centers` : `${t('pages.scheduledClasses.description')} ${currentClub.name}`}
             </p>
           </div>
 
@@ -89,8 +89,8 @@ function ScheduledClassesContent() {
                     className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
                   >
                     <Sparkles className="h-4 w-4 mr-2" />
-                    <span className="hidden xl:inline">Crear con IA</span>
-                    <span className="xl:hidden">IA</span>
+                    <span className="hidden xl:inline">Create with AI</span>
+                    <span className="xl:hidden">AI</span>
                   </Button>
                 )}
 
@@ -100,14 +100,14 @@ function ScheduledClassesContent() {
                   className="bg-gradient-to-r from-primary/10 to-secondary/10 hover:from-primary/20 hover:to-secondary/20"
                 >
                   <Zap className="h-4 w-4 mr-2" />
-                  <span className="hidden xl:inline">Creación masiva</span>
-                  <span className="xl:hidden">Masiva</span>
+                  <span className="hidden xl:inline">Bulk creation</span>
+                  <span className="xl:hidden">Bulk</span>
                 </Button>
 
                 <Button onClick={() => navigate('/dashboard/scheduled-classes/new')}>
                 <Plus className="h-4 w-4 mr-2" />
                 <span className="hidden xl:inline">{t('classes.createScheduledClasses')}</span>
-                <span className="xl:hidden">Crear</span>
+                <span className="xl:hidden">Create</span>
               </Button>
               </>
             )}
@@ -118,8 +118,8 @@ function ScheduledClassesContent() {
       {/* Main content */}
       <Tabs value={viewMode} onValueChange={value => setViewMode(value as 'calendar' | 'list')}>
         <TabsList className="hidden">
-          <TabsTrigger value="calendar">Calendario</TabsTrigger>
-          <TabsTrigger value="list">Lista</TabsTrigger>
+          <TabsTrigger value="calendar">Calendar</TabsTrigger>
+          <TabsTrigger value="list">List</TabsTrigger>
         </TabsList>
 
         <TabsContent value="calendar" className="mt-0">
