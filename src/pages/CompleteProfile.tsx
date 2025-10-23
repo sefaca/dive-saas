@@ -6,10 +6,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
-import { Target, CheckCircle2 } from "lucide-react";
+import { Target, CheckCircle2, Waves } from "lucide-react";
 import ClubSelector from "@/components/ClubSelector";
 import { supabase } from "@/integrations/supabase/client";
-import padelockLogo from "@/assets/PadeLock_D5Red.png";
 
 export const CompleteProfile = () => {
   const [level, setLevel] = useState("");
@@ -71,7 +70,7 @@ export const CompleteProfile = () => {
       console.log('🔧 CompleteProfile - Validation failed: missing fields');
       toast({
         title: "Error",
-        description: "Todos los campos son obligatorios",
+        description: "All fields are required",
         variant: "destructive"
       });
       return;
@@ -82,7 +81,7 @@ export const CompleteProfile = () => {
       console.log('🔧 CompleteProfile - Validation failed: invalid level', { numLevel });
       toast({
         title: "Error",
-        description: "El nivel debe ser un número entre 1.0 y 10.0",
+        description: "Certification level must be a number between 1.0 and 10.0",
         variant: "destructive"
       });
       return;
@@ -112,7 +111,7 @@ export const CompleteProfile = () => {
         console.error('🔧 CompleteProfile - Error updating profile:', profileError);
         toast({
           title: "Error",
-          description: "No se pudo actualizar el perfil: " + profileError.message,
+          description: "Could not update profile: " + profileError.message,
           variant: "destructive"
         });
         return;
@@ -154,7 +153,7 @@ export const CompleteProfile = () => {
           console.error('🔧 CompleteProfile - No trainer found for club');
           toast({
             title: "Error",
-            description: "No se encontró un entrenador para este club. Contacta con el administrador.",
+            description: "No instructor found for this dive center. Contact the administrator.",
             variant: "destructive"
           });
           return;
@@ -196,8 +195,8 @@ export const CompleteProfile = () => {
           });
           // Don't fail the whole process if enrollment fails, just log it
           toast({
-            title: "Advertencia",
-            description: "Perfil actualizado pero hubo un problema al crear el enrollment: " + enrollmentError.message,
+            title: "Warning",
+            description: "Profile updated but there was a problem creating enrollment: " + enrollmentError.message,
             variant: "destructive"
           });
         } else {
@@ -208,8 +207,8 @@ export const CompleteProfile = () => {
       }
 
       toast({
-        title: "¡Perfil completado!",
-        description: "Tu perfil ha sido actualizado correctamente"
+        title: "Profile completed!",
+        description: "Your profile has been updated successfully"
       });
 
       // Wait a moment for the profile to update in the context
@@ -223,7 +222,7 @@ export const CompleteProfile = () => {
       console.error('🔧 CompleteProfile - Exception in handleSubmit:', error);
       toast({
         title: "Error",
-        description: "Ocurrió un error inesperado",
+        description: "An unexpected error occurred",
         variant: "destructive"
       });
     } finally {
@@ -232,47 +231,46 @@ export const CompleteProfile = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-slate-900 via-playtomic-dark to-slate-900 flex items-center justify-center p-4 py-6 relative overflow-x-hidden">
-      {/* Elementos decorativos de fondo */}
+    <div className="min-h-screen w-full bg-gradient-to-br from-ocean-deep/90 via-ocean-tropical/20 to-ocean-deep/90 flex items-center justify-center p-4 py-6 relative overflow-x-hidden">
+      {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-playtomic-orange/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-playtomic-orange/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-playtomic-orange/5 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-ocean-tropical/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-ocean-marine/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-ocean-tropical/5 to-transparent rounded-full blur-3xl"></div>
       </div>
 
       <div className="w-full max-w-2xl relative z-10">
         {/* Logo */}
-        <div className="flex justify-center mb-8">
-          <img
-            src={padelockLogo}
-            alt="PadeLock Logo"
-            className="h-20 lg:h-24 w-auto drop-shadow-2xl"
-          />
+        <div className="flex justify-center mb-8 items-center gap-3">
+          <Waves className="h-16 lg:h-20 w-16 lg:w-20 text-ocean-tropical drop-shadow-2xl" />
+          <h1 className="text-4xl lg:text-5xl font-bold text-white drop-shadow-2xl">
+            Dive<span className="text-ocean-tropical">SaaS</span>
+          </h1>
         </div>
 
         <Card className="border-0 shadow-2xl bg-white/95 backdrop-blur-xl">
           <CardHeader className="text-center space-y-3 pb-6">
-            <div className="mx-auto w-16 h-16 rounded-full bg-gradient-to-br from-playtomic-orange/20 to-playtomic-orange/30 flex items-center justify-center shadow-xl mb-2">
-              <CheckCircle2 className="h-8 w-8 text-playtomic-orange" />
+            <div className="mx-auto w-16 h-16 rounded-full bg-gradient-to-br from-ocean-tropical/20 to-ocean-deep/30 flex items-center justify-center shadow-xl mb-2">
+              <CheckCircle2 className="h-8 w-8 text-ocean-deep" />
             </div>
-            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-playtomic-dark to-slate-700 bg-clip-text text-transparent">
-              Completa tu Perfil
+            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-ocean-deep to-ocean-tropical bg-clip-text text-transparent">
+              Complete Your Profile
             </CardTitle>
             <CardDescription className="text-base text-slate-600">
-              Solo necesitamos algunos datos más para personalizar tu experiencia
+              We just need a few more details to personalize your experience
             </CardDescription>
           </CardHeader>
 
           <CardContent className="px-6 pb-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* User info display */}
-              <div className="bg-gradient-to-r from-playtomic-orange/10 to-orange-600/10 rounded-xl p-4 border border-playtomic-orange/20">
+              <div className="bg-gradient-to-r from-ocean-tropical/10 to-ocean-deep/10 rounded-xl p-4 border border-ocean-tropical/20">
                 <div className="flex items-center gap-3">
                   {user?.user_metadata?.avatar_url && (
                     <img
                       src={user.user_metadata.avatar_url}
                       alt="Profile"
-                      className="w-12 h-12 rounded-full border-2 border-playtomic-orange"
+                      className="w-12 h-12 rounded-full border-2 border-ocean-tropical"
                     />
                   )}
                   <div className="flex-1">
@@ -284,10 +282,10 @@ export const CompleteProfile = () => {
                 </div>
               </div>
 
-              {/* Nivel de juego */}
+              {/* Certification Level */}
               <div className="space-y-2">
                 <Label htmlFor="level" className="text-sm font-semibold text-slate-700">
-                  Nivel de Juego (Playtomic) *
+                  Certification Level (PADI) *
                 </Label>
                 <div className="relative">
                   <Target className="absolute left-3 top-3.5 h-5 w-5 text-slate-400" />
@@ -303,17 +301,17 @@ export const CompleteProfile = () => {
                         setLevel(value);
                       }
                     }}
-                    placeholder="Ej: 3.5"
-                    className="pl-11 h-12 text-base border-slate-200 focus:border-playtomic-orange focus:ring-playtomic-orange/20 focus:ring-2"
+                    placeholder="e.g: 3.5"
+                    className="pl-11 h-12 text-base border-slate-200 focus:border-ocean-tropical focus:ring-ocean-tropical/20 focus:ring-2"
                     required
                   />
                 </div>
                 <p className="text-xs text-slate-500">
-                  Introduce tu nivel en Playtomic (1.0 - 10.0)
+                  Enter your certification level (1.0 - 10.0)
                 </p>
               </div>
 
-              {/* Club selector */}
+              {/* Dive Center selector */}
               <div className="space-y-2">
                 <ClubSelector
                   value={selectedClubId}
@@ -321,30 +319,30 @@ export const CompleteProfile = () => {
                     console.log('🔧 ClubSelector - Value changed to:', value);
                     setSelectedClubId(value);
                   }}
-                  label="Club *"
-                  placeholder="Selecciona tu club"
+                  label="Dive Center *"
+                  placeholder="Select your dive center"
                   required
                 />
                 <p className="text-xs text-slate-500">
-                  Selecciona el club al que perteneces
+                  Select the dive center you belong to
                 </p>
               </div>
 
               {/* Submit button */}
               <Button
                 type="submit"
-                className="w-full h-12 bg-gradient-to-r from-playtomic-orange to-orange-600 hover:from-playtomic-orange/90 hover:to-orange-700 text-white font-semibold text-base shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-[1.02] mt-8"
+                className="w-full h-12 bg-gradient-to-r from-ocean-deep to-ocean-tropical hover:from-ocean-deep/90 hover:to-ocean-tropical/90 text-white font-semibold text-base shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-[1.02] mt-8"
                 disabled={isLoading}
               >
                 {isLoading ? (
                   <div className="flex items-center gap-2">
                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                    Guardando...
+                    Saving...
                   </div>
                 ) : (
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-5 w-5" />
-                    Completar Perfil
+                    Complete Profile
                   </div>
                 )}
               </Button>
@@ -353,8 +351,8 @@ export const CompleteProfile = () => {
         </Card>
 
         {/* Footer */}
-        <div className="text-center mt-6 text-sm text-slate-400">
-          <p>© 2025 PadeLock. Todos los derechos reservados.</p>
+        <div className="text-center mt-6 text-sm text-white/60">
+          <p>© 2025 DiveSaaS. All rights reserved.</p>
         </div>
       </div>
     </div>
