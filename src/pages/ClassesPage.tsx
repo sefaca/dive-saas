@@ -65,10 +65,10 @@ const ClassesPage = () => {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold bg-gradient-to-r from-ocean-deep to-ocean-tropical bg-clip-text text-transparent">
-              Session Management
+              Trip Management
             </h1>
             <p className="text-muted-foreground">
-              Create and manage dive sessions for divers
+              Create and manage dive trips for divers
             </p>
           </div>
           <div className="flex gap-2">
@@ -86,7 +86,7 @@ const ClassesPage = () => {
               className="bg-gradient-to-r from-ocean-deep to-ocean-tropical hover:from-ocean-deep/90 hover:to-ocean-tropical/90 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <Plus className="mr-2 h-4 w-4" />
-              New Session
+              New Trip
             </Button>
           </div>
         </div>
@@ -130,10 +130,10 @@ const ClassesPage = () => {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold bg-gradient-to-r from-ocean-deep to-ocean-tropical bg-clip-text text-transparent">
-              Dive Sessions
+              Dive Trips
             </h1>
             <p className="text-muted-foreground">
-              Find and book dive sessions
+              Find and book dive trips
             </p>
           </div>
         </div>
@@ -142,10 +142,10 @@ const ClassesPage = () => {
           <CardHeader>
             <CardTitle className="text-ocean-deep flex items-center space-x-2">
               <GraduationCap className="h-5 w-5" />
-              <span>Welcome to dive sessions!</span>
+              <span>Welcome to dive trips!</span>
             </CardTitle>
             <CardDescription className="text-ocean-tropical">
-              Improve your skills with professional instructors. Select a dive center to begin.
+              Explore amazing dive sites with professional instructors. Select a dive center to begin.
             </CardDescription>
           </CardHeader>
         </Card>
@@ -161,10 +161,10 @@ const ClassesPage = () => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-ocean-deep to-ocean-tropical bg-clip-text text-transparent">
-            Dive Sessions
+            Dive Trips
           </h1>
           <p className="text-muted-foreground">
-            Find and book dive sessions
+            Find and book dive trips
           </p>
         </div>
       </div>
@@ -173,18 +173,18 @@ const ClassesPage = () => {
         <CardHeader>
           <CardTitle className="text-ocean-deep flex items-center space-x-2">
             <GraduationCap className="h-5 w-5" />
-            <span>Dive Sessions</span>
+            <span>Dive Trips</span>
           </CardTitle>
           <CardDescription className="text-ocean-tropical">
-            Reserve your spot in available sessions and improve your diving with professional instructors.
+            Reserve your spot on available trips and explore amazing dive sites with professional instructors.
           </CardDescription>
         </CardHeader>
       </Card>
 
       <Tabs defaultValue="available" className="space-y-6">
         <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="available">Available Sessions</TabsTrigger>
-          <TabsTrigger value="my-reservations">My Reservations</TabsTrigger>
+          <TabsTrigger value="available">Available Trips</TabsTrigger>
+          <TabsTrigger value="my-reservations">My Bookings</TabsTrigger>
         </TabsList>
         
         <TabsContent value="available" className="space-y-6">

@@ -61,7 +61,7 @@ const AppSidebar = () => {
                 <SidebarMenuButton asChild isActive={location.pathname === "/dashboard/scheduled-classes"}>
                 <Link to="/dashboard/scheduled-classes">
                   <Calendar />
-                  <span>Scheduled Dive Sessions</span>
+                  <span>Trips</span>
                 </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -174,7 +174,7 @@ const AppSidebar = () => {
         icon: Zap
       }] : []),
       {
-        title: "Dive Sessions",
+        title: "Trips",
         url: "/dashboard/scheduled-classes",
         icon: Ship
       },

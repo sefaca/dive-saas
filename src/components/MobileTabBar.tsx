@@ -39,7 +39,7 @@ const MobileTabBar = () => {
       icon: Users,
     },
     {
-      name: "Sessions",
+      name: "Trips",
       path: "/dashboard/scheduled-classes",
       icon: Calendar,
     },
