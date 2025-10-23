@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { useActiveClubs } from "@/hooks/useActiveClubs";
 import { TripSheet } from "@/components/trips/TripSheet";
 import { CreateTrip } from "@/components/trips/CreateTrip";
 import ClassCalendarView from "@/components/ClassCalendarView";
 import { ClassFiltersProvider, useClassFilters } from "@/contexts/ClassFiltersContext";
+import { ChevronDown, ChevronRight, Plus } from "lucide-react";
 
-type TripView = 'sheet' | 'create' | 'calendar';
+type TripView = 'sheet' | 'calendar';
 
 function ScheduledClassesContent() {
   const [activeView, setActiveView] = useState<TripView>('sheet');
+  const [isTripsExpanded, setIsTripsExpanded] = useState(true);
+  const [showCreateTrip, setShowCreateTrip] = useState(false);
   const { profile } = useAuth();
   const { data: clubs } = useActiveClubs();
   const { filters } = useClassFilters();
@@ -36,62 +40,85 @@ function ScheduledClassesContent() {
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
-      <div className="w-48 bg-gray-100 border-r flex flex-col">
-        {/* Options Header */}
-        <div className="p-4 border-b bg-white">
-          <h2 className="font-bold text-lg">Options</h2>
-        </div>
+      <div className="w-56 bg-gray-50 border-r flex flex-col">
+        <div className="p-3">
+          {/* Trips Collapsible Section */}
+          <div>
+            <button
+              onClick={() => setIsTripsExpanded(!isTripsExpanded)}
+              className="w-full flex items-center justify-between px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 rounded transition-colors"
+            >
+              <span>Trips</span>
+              {isTripsExpanded ? (
+                <ChevronDown className="h-4 w-4" />
+              ) : (
+                <ChevronRight className="h-4 w-4" />
+              )}
+            </button>
 
-        {/* Trips Section */}
-        <div className="p-4 space-y-2">
-          <h3 className="font-semibold text-sm text-gray-600 mb-3">Trips</h3>
+            {/* Expanded Trips Options */}
+            {isTripsExpanded && (
+              <div className="ml-3 mt-1 space-y-1">
+                <button
+                  onClick={() => {
+                    setActiveView('sheet');
+                    setShowCreateTrip(false);
+                  }}
+                  className={`w-full text-left px-3 py-2 text-sm rounded transition-colors ${
+                    activeView === 'sheet' && !showCreateTrip
+                      ? 'bg-blue-600 text-white font-medium'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  Trips Sheets
+                </button>
 
-          <button
-            onClick={() => setActiveView('sheet')}
-            className={`w-full text-left px-3 py-2 text-sm rounded transition-colors ${
-              activeView === 'sheet'
-                ? 'bg-blue-600 text-white font-semibold'
-                : 'hover:bg-gray-200 text-gray-700'
-            }`}
-          >
-            Trips sheet...
-          </button>
-
-          <button
-            onClick={() => setActiveView('create')}
-            className={`w-full text-left px-3 py-2 text-sm rounded transition-colors ${
-              activeView === 'create'
-                ? 'bg-blue-600 text-white font-semibold'
-                : 'hover:bg-gray-200 text-gray-700'
-            }`}
-          >
-            Create Trip...
-          </button>
-
-          <button
-            onClick={() => setActiveView('calendar')}
-            className={`w-full text-left px-3 py-2 text-sm rounded transition-colors ${
-              activeView === 'calendar'
-                ? 'bg-blue-600 text-white font-semibold'
-                : 'hover:bg-gray-200 text-gray-700'
-            }`}
-          >
-            30-day view...
-          </button>
+                <button
+                  onClick={() => {
+                    setActiveView('calendar');
+                    setShowCreateTrip(false);
+                  }}
+                  className={`w-full text-left px-3 py-2 text-sm rounded transition-colors ${
+                    activeView === 'calendar' && !showCreateTrip
+                      ? 'bg-blue-600 text-white font-medium'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  Calendar
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
       {/* Main Content */}
       <div className="flex-1 overflow-y-auto bg-white">
-        {activeView === 'sheet' && <TripSheet />}
-        {activeView === 'create' && <CreateTrip />}
-        {activeView === 'calendar' && (
-          <div className="p-4">
-            <ClassCalendarView
-              clubId={adminClubs?.length ? undefined : currentClub?.id}
-              clubIds={adminClubs?.length ? adminClubs.map(c => c.id) : undefined}
-              filters={filters}
-            />
+        {showCreateTrip ? (
+          <CreateTrip />
+        ) : activeView === 'sheet' ? (
+          <TripSheet />
+        ) : (
+          <div className="h-full flex flex-col">
+            {/* Create Trip Button for Calendar View */}
+            <div className="p-4 border-b bg-white">
+              <Button
+                onClick={() => setShowCreateTrip(true)}
+                className="bg-blue-600 hover:bg-blue-700 text-white"
+              >
+                <Plus className="h-4 w-4 mr-2" />
+                Create Trip
+              </Button>
+            </div>
+
+            {/* Calendar Content */}
+            <div className="flex-1 overflow-y-auto p-4">
+              <ClassCalendarView
+                clubId={adminClubs?.length ? undefined : currentClub?.id}
+                clubIds={adminClubs?.length ? adminClubs.map(c => c.id) : undefined}
+                filters={filters}
+              />
+            </div>
           </div>
         )}
       </div>
