@@ -21,7 +21,7 @@ const benefits = [
   {
     icon: Users,
     title: "Centralized Management",
-    description: "Complete control of trips, staff, and customers in one platform",
+    description: "Complete control of trips, staff, divers, and equipment in one platform",
     metric: "100% integrated",
     color: "text-ocean-deep",
     bgColor: "bg-ocean-deep/10"

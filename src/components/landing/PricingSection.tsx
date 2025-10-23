@@ -25,7 +25,7 @@ const pricingTiers = [
 ];
 
 const allFeatures = [
-  "Complete dive trip and schedule management",
+  "Complete trip scheduling and management",
   "Dashboard for divers and instructors",
   "Automatic booking system",
   "Automated WhatsApp notifications",

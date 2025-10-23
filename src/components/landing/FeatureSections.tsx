@@ -7,7 +7,7 @@ const features = [
     title: "Trip Management",
     description: "Complete dive trip scheduling and booking system to maximize your dive center operations.",
     items: [
-      "Dive trip scheduling and planning",
+      "Trip scheduling and planning",
       "Real-time availability tracking",
       "Automated booking confirmations",
       "Trip history and logs",
@@ -40,13 +40,13 @@ const features = [
   },
   {
     icon: GraduationCap,
-    title: "Course Management",
-    description: "Organize diving courses, certifications, and training programs efficiently.",
+    title: "Training Programs",
+    description: "Organize diving certifications and training programs efficiently.",
     items: [
-      "Course scheduling and enrollment",
-      "Multi-level certification programs",
+      "Certification program scheduling",
+      "Multi-level PADI certifications",
       "Student progress tracking",
-      "Course materials management",
+      "Training materials management",
       "Instructor assignment"
     ]
   },
@@ -85,8 +85,8 @@ export const FeatureSections = () => {
             Everything you need for your dive center
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            A complete platform that centralizes management, automates processes, and enhances
-            the experience for administrators, instructors, and customers.
+            A complete platform that centralizes trip management, automates processes, and enhances
+            the experience for administrators, instructors, and divers.
           </p>
         </div>
 
@@ -148,7 +148,7 @@ export const FeatureSections = () => {
               </div>
               <h3 className="text-lg font-bold mb-2">Centralized Management</h3>
               <p className="text-muted-foreground text-sm">
-                Everything in one place: trips, staff, customers, courses, and equipment.
+                Everything in one place: trips, staff, divers, training programs, and equipment.
               </p>
             </CardContent>
           </Card>

@@ -113,7 +113,7 @@ export const LandingHero = () => {
               </h1>
 
               <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
-                Complete software designed for dive centers, instructors, and customers. Save time and money managing trips, staff, courses, and equipment.
+                Complete software designed for dive centers, instructors, and customers. Save time and money managing trips, staff, training programs, and equipment.
               </p>
             </div>
 
