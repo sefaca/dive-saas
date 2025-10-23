@@ -46,7 +46,7 @@ const ClassesPage = () => {
     setSelectedClubId(null);
   };
 
-  // Mostrar formulario de administrador
+  // Show admin form
   if (showForm && isAdmin) {
     return (
       <div className="space-y-4 sm:space-y-6 p-2 sm:p-4">
@@ -55,7 +55,7 @@ const ClassesPage = () => {
     );
   }
 
-  // Vista de administrador
+  // Admin view
   if (isAdmin) {
     // Check if user is ivan@gmail.com for AI features
     const isIvanUser = user?.email === 'ivan@gmail.com';
@@ -64,11 +64,11 @@ const ClassesPage = () => {
       <div className="space-y-4 sm:space-y-6 p-2 sm:p-4">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-playtomic-orange to-playtomic-orange-dark bg-clip-text text-transparent">
-              Gestión de Clases
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-ocean-deep to-ocean-tropical bg-clip-text text-transparent">
+              Session Management
             </h1>
             <p className="text-muted-foreground">
-              Crea y gestiona las clases de pádel para los jugadores
+              Create and manage dive sessions for divers
             </p>
           </div>
           <div className="flex gap-2">
@@ -78,15 +78,15 @@ const ClassesPage = () => {
                 className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 <Sparkles className="mr-2 h-4 w-4" />
-                Crear con IA
+                Create with AI
               </Button>
             )}
             <Button
               onClick={handleCreateNew}
-              className="bg-gradient-to-r from-playtomic-orange to-playtomic-orange-dark hover:from-playtomic-orange-dark hover:to-playtomic-orange transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="bg-gradient-to-r from-ocean-deep to-ocean-tropical hover:from-ocean-deep/90 hover:to-ocean-tropical/90 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <Plus className="mr-2 h-4 w-4" />
-              Nueva Clase
+              New Session
             </Button>
           </div>
         </div>
@@ -103,49 +103,49 @@ const ClassesPage = () => {
     );
   }
 
-  // Cargando estado de reservas del jugador
+  // Loading diver's reservation status
   if (isLoadingStatus) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-playtomic-orange"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-ocean-tropical"></div>
       </div>
     );
   }
 
-  // Vista de jugador - sin reservas previas
+  // Diver view - no previous reservations
   if (!reservationStatus?.hasReservations) {
-    // Si está viendo las clases de un club específico
+    // If viewing classes for a specific dive center
     if (selectedClubId) {
       return (
-        <ClubClassesView 
-          clubId={selectedClubId} 
+        <ClubClassesView
+          clubId={selectedClubId}
           onBack={handleBackToClubSelection}
         />
       );
     }
 
-    // Mostrar selección de clubes
+    // Show dive center selection
     return (
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-playtomic-orange to-playtomic-orange-dark bg-clip-text text-transparent">
-              Clases de Pádel
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-ocean-deep to-ocean-tropical bg-clip-text text-transparent">
+              Dive Sessions
             </h1>
             <p className="text-muted-foreground">
-              Encuentra y reserva clases de pádel
+              Find and book dive sessions
             </p>
           </div>
         </div>
 
-        <Card className="border-orange-200 bg-orange-50">
+        <Card className="border-ocean-tropical/20 bg-ocean-tropical/5">
           <CardHeader>
-            <CardTitle className="text-playtomic-orange-dark flex items-center space-x-2">
+            <CardTitle className="text-ocean-deep flex items-center space-x-2">
               <GraduationCap className="h-5 w-5" />
-              <span>¡Bienvenido a las clases de pádel!</span>
+              <span>Welcome to dive sessions!</span>
             </CardTitle>
-            <CardDescription className="text-playtomic-orange">
-              Mejora tu juego con entrenadores profesionales. Selecciona un club para comenzar.
+            <CardDescription className="text-ocean-tropical">
+              Improve your skills with professional instructors. Select a dive center to begin.
             </CardDescription>
           </CardHeader>
         </Card>
@@ -155,36 +155,36 @@ const ClassesPage = () => {
     );
   }
 
-  // Vista de jugador - con reservas previas (vista estándar)
+  // Diver view - with previous reservations (standard view)
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-playtomic-orange to-playtomic-orange-dark bg-clip-text text-transparent">
-            Clases de Pádel
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-ocean-deep to-ocean-tropical bg-clip-text text-transparent">
+            Dive Sessions
           </h1>
           <p className="text-muted-foreground">
-            Encuentra y reserva clases de pádel
+            Find and book dive sessions
           </p>
         </div>
       </div>
 
-      <Card className="border-orange-200 bg-orange-50">
+      <Card className="border-ocean-tropical/20 bg-ocean-tropical/5">
         <CardHeader>
-          <CardTitle className="text-playtomic-orange-dark flex items-center space-x-2">
+          <CardTitle className="text-ocean-deep flex items-center space-x-2">
             <GraduationCap className="h-5 w-5" />
-            <span>Clases de Pádel</span>
+            <span>Dive Sessions</span>
           </CardTitle>
-          <CardDescription className="text-playtomic-orange">
-            Reserva tu plaza en las clases disponibles y mejora tu juego con entrenadores profesionales.
+          <CardDescription className="text-ocean-tropical">
+            Reserve your spot in available sessions and improve your diving with professional instructors.
           </CardDescription>
         </CardHeader>
       </Card>
 
       <Tabs defaultValue="available" className="space-y-6">
         <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="available">Clases Disponibles</TabsTrigger>
-          <TabsTrigger value="my-reservations">Mis Reservas</TabsTrigger>
+          <TabsTrigger value="available">Available Sessions</TabsTrigger>
+          <TabsTrigger value="my-reservations">My Reservations</TabsTrigger>
         </TabsList>
         
         <TabsContent value="available" className="space-y-6">
